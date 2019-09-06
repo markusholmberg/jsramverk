@@ -8,18 +8,21 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <h1>JSRamverk Me-sida</h1>
                 <Router>
-                  <div>
-                      <ul>
-                          <li>
-                            <NavLink activeClassName="active" exact={true} to="/">Hem</NavLink>
-                          </li>
-                          <li>
-                            <NavLink activeClassName="active" to="/reports">Rapporter</NavLink>
-                          </li>
-                        </ul>
-                        <hr />
+                    <div>
+                        <nav className="nav">
+                            <ul>
+                                <li>
+                                    <NavLink activeClassName="active" exact={true} to="/">Hem</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink activeClassName="active" to="/reports">Rapporter</NavLink>
+                                </li>
+                                <li style={{float: "right", display: "block", padding: "14px 16px", color: "#ff8000"}}>
+                                    JSRamverk Me-page
+                                </li>
+                            </ul>
+                        </nav>
                     <Route exact path="/" component={Me} />
                     <Route path="/reports" component={Reports} />
                   </div>

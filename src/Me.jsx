@@ -5,9 +5,13 @@ import './App.css';
 export default class Me extends Component {
     render() {
         return (
-            <div>
-                <h1>Om mig</h1>
-                <p>Hejehj</p>
+            <div className="first">
+                <div>
+                    <h1>About me</h1>
+                    <p>My name is Markus Holmberg. I am studying the third year of Webprogramming at Blekinge Institute of Technology.
+                    In my freetime I like to play videogames, hang out with friends or go skiing in the winter.
+                    </p>
+                </div>
             </div>
         )
     }
