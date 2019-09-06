@@ -1,4 +1,4 @@
-##How to install this project
+## How to install this project
 
 The first thing you have to do is to clone the repo by using the command `git clone`.
 
