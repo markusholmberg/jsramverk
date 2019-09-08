@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     font-family: sans-serif;
 }
@@ -51,9 +55,21 @@ a:visited {
     text-decoration: none;
 }
 
+.img {
+    width: 20%;
+    float: right;
+    margin-right: 20px;
+    border-radius: 2em;
+}
+
+.about {
+    float: left;
+    width: 60%;
+}
+
 .first, .reports {
     margin: 0;
-    width: 70%;
+    width: 100%;
     padding: 10px;
 }
 
