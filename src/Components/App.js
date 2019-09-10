@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
+import '../style/App.css';
 import Me from './Me';
 import Reports from './Reports';
+import Register from './Register';
 
 export default class App extends Component {
     render() {
@@ -18,6 +19,9 @@ export default class App extends Component {
                                 <li>
                                     <NavLink activeClassName="active" to="/reports">Reports</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink activeClassName="active" to="/register">Register</NavLink>
+                                </li>
                                 <li style={{float: "right", display: "block", padding: "14px 16px", color: "#ff8000"}}>
                                     JSRamverk Me-page
                                 </li>
@@ -25,6 +29,7 @@ export default class App extends Component {
                         </nav>
                     <Route exact path="/" component={Me} />
                     <Route path="/reports" component={Reports} />
+                    <Route path="/register" component={Register} />
                   </div>
                 </Router>
             </div>
