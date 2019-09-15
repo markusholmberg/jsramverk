@@ -67,9 +67,15 @@ a:visited {
     width: 60%;
 }
 
-.first, .reports, .register {
+.first, .register {
     margin: 0;
     width: 100%;
+    padding: 10px;
+}
+
+.reports {
+    width: 75%;
+    margin: 0;
     padding: 10px;
 }
 
@@ -129,6 +135,30 @@ a:visited {
     margin-top: -1.7em;
     z-index: 2;
     cursor: pointer;
+}
+
+select {
+    margin-bottom: 1em;
+}
+
+.errors {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1.25rem;
+    width: 50%;
+    border-radius: 0.25em;
+    margin-bottom: 1rem
+}
+
+.success {
+    width: 50%;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
 }
 
 @media (min-width: 768px) {
