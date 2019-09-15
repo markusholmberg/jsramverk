@@ -11,6 +11,7 @@ export default class WeekTwo extends Component {
         return (
             <div className="reports">
                 <h1>Week 2</h1>
+                <a href="https://github.com/markusholmberg/jsramverk">Link to GitHub repo</a>
                 <p>I didn't really have any insiration for my date picker. I google around on different designs but there wasn't really anything that cought my eye.
                 Many of the designs I found were also npm packages and I didn't want to install anything for my date picker. In the end I ended up just having
                 three different dropdowns menus for year, month and day. And then added some Bootstrap classes to that. For the validation I found a tutorial that explained a good
