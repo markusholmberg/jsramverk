@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import '../../style/App.css';
 
 // const Week = ({ match }) => <p>{match.params.id}</p>
+const admin = localStorage.getItem("loggedIn")
 
 
 export default class WeekTwo extends Component {
@@ -18,6 +19,7 @@ export default class WeekTwo extends Component {
                 way how to do validation in React not using any dependencies. And then I wanted to show the errors in a good way and I found the Bootrap alert style to be a good way to
                 make the errors pop and easy to notice.
                 </p>
+                {admin === "1" ? <button>Edit</button> : null}
             </div>
         )
     }

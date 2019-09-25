@@ -4,6 +4,7 @@ import '../style/App.css';
 import Me from './Me';
 import Reports from './Reports';
 import Register from './Register';
+import Login from './Login';
 
 export default class App extends Component {
     render() {
@@ -22,6 +23,9 @@ export default class App extends Component {
                                 <li>
                                     <NavLink activeClassName="active" to="/register">Register</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink activeClassName="active" to="/login">Login</NavLink>
+                                </li>
                                 <li style={{float: "right", display: "block", padding: "14px 16px", color: "#ff8000"}}>
                                     JSRamverk Me-page
                                 </li>
@@ -30,6 +34,7 @@ export default class App extends Component {
                     <Route exact path="/" component={Me} />
                     <Route path="/reports" component={Reports} />
                     <Route path="/register" component={Register} />
+                    <Route path="/login" component={Login} />
                   </div>
                 </Router>
             </div>

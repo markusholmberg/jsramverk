@@ -4,6 +4,7 @@ import '../style/App.css';
 export default class Register extends Component {
     constructor(props) {
         super(props);
+        this.onSubmit = this.onSubmit.bind(this);
         const years = [];
         const days = []
         for (var i = 2020; i > 1899; i--) {
@@ -17,7 +18,8 @@ export default class Register extends Component {
         this.state = {
             year: years,
             day: days,
-            name: "",
+            firstname: "",
+            lastname: "",
             password: "",
             email: "",
             selectedYear: "",
@@ -27,13 +29,17 @@ export default class Register extends Component {
         }
     }
 
-    validate(name, email, password, selectedYear, selectedMonth, selectedDay) {
+    validate(firstname, lastname, email, password, selectedYear, selectedMonth, selectedDay) {
         // we are going to store errors for all fields
         // in a signle array
         const errors = [];
 
-        if (name.length === 0) {
-            errors.push("Name can't be empty");
+        if (firstname.length === 0) {
+            errors.push("Firstname can't be empty");
+        }
+
+        if (lastname.length === 0) {
+            errors.push("Lastname can't be empty");
         }
 
         if (email.length < 5) {
@@ -73,8 +79,12 @@ export default class Register extends Component {
         }
     }
 
-    onChangeName = (e) => {
-        this.setState({name: e.target.value})
+    onChangeFirstName = (e) => {
+        this.setState({firstname: e.target.value})
+    }
+
+    onChangeLastName = (e) => {
+        this.setState({lastname: e.target.value})
     }
 
     onChangePass = (e) => {
@@ -99,22 +109,40 @@ export default class Register extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        const values = {
+            "firstname": this.refs.firstname.value,
+            "lastname": this.refs.lastname.value,
+            "email": this.refs.email.value,
+            "password": this.refs.password.value,
+            "year": this.refs.year.value,
+            "month": this.refs.month.value,
+            "day": this.refs.day.value
+        }
+        const { firstname, lastname, email, password, selectedYear, selectedMonth, selectedDay} = this.state;
 
-        const { name, email, password, selectedYear, selectedMonth, selectedDay} = this.state;
-
-        const errors = this.validate(name, email, password, selectedYear, selectedMonth, selectedDay);
+        const errors = this.validate(firstname, lastname, email, password, selectedYear, selectedMonth, selectedDay);
         if (errors.length > 0) {
             document.getElementById("error").style.display = "block";
             this.setState({ errors });
             return;
         } else {
-            console.log("You're now registered")
-            document.getElementById("green").style.display = "block";
-            document.getElementById("error").style.display = "none";
+            fetch("http://localhost:8333/register", {
+                method: "POST",
+                body: JSON.stringify(values),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
+            // console.log("You're now registered")
+            // document.getElementById("green").style.display = "block";
+            // document.getElementById("error").style.display = "none";
         }
     }
 
     render() {
+        // console.log(this.state)
         const { errors } = this.state;
         const months = [
             {id: 1, name: "January"},
@@ -145,30 +173,35 @@ export default class Register extends Component {
                         ))}
                     </div>
                     <div className="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" className="form-control" placeholder="Enter your name here" onChange={this.onChangeName}/>
+                        <label>Firstname</label>
+                        <input ref="firstname" type="text" name="name" className="form-control" placeholder="Enter your firstname here" onChange={this.onChangeFirstName}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Lastname</label>
+                        <input ref="lastname" type="text" name="name" className="form-control" placeholder="Enter your lastname here" onChange={this.onChangeLastName}/>
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input id="pass" type="password" name="password" className="form-control" placeholder="Enter password here" onChange={this.onChangePass}/>
+                        <input ref="password" id="pass" type="password" name="password" className="form-control" placeholder="Enter password here" onChange={this.onChangePass}/>
+                        <p style={{"marginBottom": 0, "marginTop": "0.5em"}}>Password needs to be atleast 6 characters long</p>
                         <label><input type="checkbox" name="check" onClick={this.onClick} style={{marginTop: "1em"}}/>Show password</label>
                     </div>
                     <div className="form-group">
                         <label>E-Mail</label>
-                        <input type="email" name="email" className="form-control" placeholder="Enter E-Mail here" onChange={this.onChangeMail}/>
+                        <input ref="email" type="email" name="email" className="form-control" placeholder="Enter E-Mail here" onChange={this.onChangeMail}/>
                     </div>
                     <div className="form-group">
                         <label>Date of birth</label>
-                        <select name="year" className="form-control selcls" onChange={this.onChangeYear}>
+                        <select ref="year" name="year" className="form-control selcls" onChange={this.onChangeYear}>
                             <option hidden defaultValue>Select a year</option>
                             {this.state.year.map((year, index) => <option key={index}>{year}</option>)}
                         </select>
-                        <select name="month" className="form-control selcls" onChange={this.onChangeMonth}>
+                        <select ref="month" name="month" className="form-control selcls" onChange={this.onChangeMonth}>
                             <option hidden defaultValue>Select a month</option>
                             {arr}
                         </select>
 
-                        <select name="day" className="form-control selcls" onChange={this.onChangeDay}>
+                        <select ref="day" name="day" className="form-control selcls" onChange={this.onChangeDay}>
                             <option hidden defaultValue>Select a day</option>
                             {this.state.day.map((day, index) => <option key={index}>{day}</option>)}
                         </select>
