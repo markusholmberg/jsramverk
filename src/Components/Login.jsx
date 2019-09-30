@@ -4,8 +4,6 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "admin",
-            password: "admin",
             user: "",
             pass: "",
             loggedIn: 0,
@@ -58,7 +56,7 @@ export default class Login extends Component {
             this.setState({ errors });
             return;
         } else {
-            fetch("http://localhost:8333/login", {
+            fetch(process.env.REACT_APP_API + "/login", {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: {
@@ -74,7 +72,7 @@ export default class Login extends Component {
             .catch(error => console.error('Error:', error));
             document.getElementById("green").style.display = "block";
             document.getElementById("error").style.display = "none";
-            window.location.reload();
+            // window.location.reload();
         }
     }
 

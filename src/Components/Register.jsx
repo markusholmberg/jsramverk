@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import '../style/App.css';
+// require("dotenv").config();
 
 export default class Register extends Component {
     constructor(props) {
@@ -126,7 +127,7 @@ export default class Register extends Component {
             this.setState({ errors });
             return;
         } else {
-            fetch("http://localhost:8333/register", {
+            fetch(process.env.REACT_APP_API + "/register", {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: {
@@ -189,6 +190,7 @@ export default class Register extends Component {
                     <div className="form-group">
                         <label>E-Mail</label>
                         <input ref="email" type="email" name="email" className="form-control" placeholder="Enter E-Mail here" onChange={this.onChangeMail}/>
+                        <p style={{"marginBottom": 0, "marginTop": "0.5em"}}>E-Mail has to be atleast 5 characters long, contain a @ and atleast one dot.</p>
                     </div>
                     <div className="form-group">
                         <label>Date of birth</label>

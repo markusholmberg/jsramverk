@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../../style/App.css';
+// require("dotenv").config();
 
 const marked = require("marked");
 
@@ -14,7 +15,7 @@ export default class ReportsView extends Component {
     }
 
     componentDidMount = () => {
-        fetch('http://localhost:8333/reports/week/' + this.props.match.params.id, {
+        fetch(process.env.REACT_APP_API + '/reports/week/' + this.props.match.params.id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -36,7 +37,7 @@ export default class ReportsView extends Component {
 
     componentDidUpdate = (prevProps) => {
         if (this.props.match.params.id !== prevProps.match.params.id) {
-            fetch('http://localhost:8333/reports/week/' + this.props.match.params.id)
+            fetch(process.env.REACT_APP_API + '/reports/week/' + this.props.match.params.id)
             .then((response) => {
                 return response.json();
             })
@@ -65,7 +66,7 @@ export default class ReportsView extends Component {
             "week": this.props.match.params.id,
             "report": this.state.report
         }
-        fetch("http://localhost:8333/reports/week/:id", {
+        fetch(process.env.REACT_APP_API + "/reports/week/:id", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -116,7 +117,7 @@ export default class ReportsView extends Component {
             "report": this.state.report,
             "token": localStorage.getItem("access_token")
         }
-        fetch("http://localhost:8333/reports/week/:id/update", {
+        fetch(process.env.REACT_APP_API + "/reports/week/:id/update", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
