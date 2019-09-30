@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link } from 'react';
-import '../style/App.css';
+// import '../style/App.css';
 import logo from "../markus.jpg";
 
 export default class Me extends Component {

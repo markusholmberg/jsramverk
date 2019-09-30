@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
+import './style/App.css';
 import App from './Components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));

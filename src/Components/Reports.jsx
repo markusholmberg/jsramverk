@@ -4,7 +4,7 @@ import { Route, NavLink } from 'react-router-dom'
 // import WeekTwo from './Reports/WeekTwo';
 // import WeekThree from './Reports/WeekThree';
 import ReportsView from './Reports/ReportsView';
-import '../style/App.css';
+// import '../style/App.css';
 
 export default class Reports extends Component {
     render() {
