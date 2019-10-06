@@ -6,12 +6,12 @@ const By = require("selenium-webdriver").By;
 let browser;
 
 test.describe("Me-page", async function() {
-    test.beforeEach( async function(done) {
+    test.beforeEach(async function(done) {
         this.timeout(20000);
-        browser = new webdriver.Builder().
+        browser = await new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.chrome()).build();
 
-        browser.get("https://mahm.me");
+        await browser.get("https://mahm.me");
         await done();
     });
 
