@@ -3,6 +3,11 @@ const test = require("selenium-webdriver/testing");
 const webdriver = require("selenium-webdriver");
 const By = require("selenium-webdriver").By;
 
+let chrome = require('selenium-webdriver/chrome');
+let chromedriver = require('chromedriver');
+
+chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
+
 let browser;
 
 test.describe("Me-page", async function() {
