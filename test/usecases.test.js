@@ -3,12 +3,7 @@ const test = require("selenium-webdriver/testing");
 const webdriver = require("selenium-webdriver");
 const By = require("selenium-webdriver").By;
 
-let chrome = require('selenium-webdriver/chrome');
-let chromedriver = require('chromedriver');
-var path = require('chromedriver').path;
-
-var service = new chrome.ServiceBuilder(path).build();
-chrome.setDefaultService(service);
+require('chromedriver');
 
 let browser;
 
