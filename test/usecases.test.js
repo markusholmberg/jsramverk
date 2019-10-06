@@ -10,14 +10,14 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 
 let browser;
 
-test.describe("Me-page", async function() {
-    test.beforeEach(async function(done) {
+test.describe("Me-page", function() {
+    test.beforeEach(function(done) {
         this.timeout(20000);
-        browser = await new webdriver.Builder().
+        browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.chrome()).build();
 
-        await browser.get("https://mahm.me");
-        await done();
+        browser.get("https://mahm.me");
+        done();
     });
 
     test.afterEach(async function(done) {
