@@ -175,11 +175,11 @@ export default class Register extends Component {
                     </div>
                     <div className="form-group">
                         <label>Firstname</label>
-                        <input ref="firstname" type="text" name="name" className="form-control" placeholder="Enter your firstname here" onChange={this.onChangeFirstName}/>
+                        <input ref="firstname" type="text" name="firstname" className="form-control" placeholder="Enter your firstname here" onChange={this.onChangeFirstName}/>
                     </div>
                     <div className="form-group">
                         <label>Lastname</label>
-                        <input ref="lastname" type="text" name="name" className="form-control" placeholder="Enter your lastname here" onChange={this.onChangeLastName}/>
+                        <input ref="lastname" type="text" name="lastname" className="form-control" placeholder="Enter your lastname here" onChange={this.onChangeLastName}/>
                     </div>
                     <div className="form-group">
                         <label>Password</label>

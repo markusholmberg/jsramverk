@@ -37,7 +37,12 @@ export default class ReportsView extends Component {
 
     componentDidUpdate = (prevProps) => {
         if (this.props.match.params.id !== prevProps.match.params.id) {
-            fetch(process.env.REACT_APP_API + '/reports/week/' + this.props.match.params.id)
+            fetch(process.env.REACT_APP_API + '/reports/week/' + this.props.match.params.id, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
             .then((response) => {
                 return response.json();
             })
