@@ -5,16 +5,19 @@ const By = require("selenium-webdriver").By;
 
 let chrome = require('selenium-webdriver/chrome');
 let chromedriver = require('chromedriver');
+var path = require('chromedriver').path;
 
-chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
+var service = new chrome.ServiceBuilder(path).build();
+chrome.setDefaultService(service);
 
 let browser;
 
 test.describe("Me-page", function() {
     test.beforeEach(function(done) {
         this.timeout(20000);
-        browser = new webdriver.Builder().
-            withCapabilities(webdriver.Capabilities.chrome()).build();
+        browser = new webdriver.Builder()
+        .withCapabilities(webdriver.Capabilities.chrome())
+        .build();
 
         browser.get("https://mahm.me");
         done();
