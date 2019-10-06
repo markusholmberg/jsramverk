@@ -1,9 +1,16 @@
+sudo: required
+dist: trusty
+addons:
+    apt:
+        sources:
+            - google-chrome
+        packages:
+            - google-chrome-stable
+
 language: node_js
 
 node_js:
     - "10"
-
-sudo: false
 
 git:
     submodules: false

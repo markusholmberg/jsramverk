@@ -12,12 +12,12 @@ test.describe("Me-page", async function() {
             withCapabilities(webdriver.Capabilities.chrome()).build();
 
         browser.get("https://mahm.me");
-        done();
+        await done();
     });
 
-    test.afterEach(function(done) {
-        browser.quit();
-        done();
+    test.afterEach(async function(done) {
+        await browser.quit();
+        await done();
     });
 
     async function goToNavLink(target) {
