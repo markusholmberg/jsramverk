@@ -7,15 +7,15 @@ require('chromedriver');
 
 let browser;
 
-test.describe("Me-page", function() {
-    test.beforeEach(function(done) {
-        this.timeout(20000);
-        browser = new webdriver.Builder()
+test.describe("Me-page", async function() {
+    test.beforeEach(async function(done) {
+        await this.timeout(20000);
+        browser = await new webdriver.Builder()
         .withCapabilities(webdriver.Capabilities.chrome())
         .build();
 
-        browser.get("https://mahm.me");
-        done();
+        await browser.get("https://mahm.me");
+        await done();
     });
 
     test.afterEach(async function(done) {
