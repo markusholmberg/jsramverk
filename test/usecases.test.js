@@ -3,8 +3,6 @@ const test = require("selenium-webdriver/testing");
 const webdriver = require("selenium-webdriver");
 const By = require("selenium-webdriver").By;
 
-require('chromedriver');
-
 let browser;
 
 test.describe("Me-page", async function() {
