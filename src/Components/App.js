@@ -5,6 +5,7 @@ import Me from './Me';
 import Reports from './Reports';
 import Register from './Register';
 import Login from './Login';
+import Chat from './Chat';
 
 export default class App extends Component {
     render() {
@@ -21,6 +22,9 @@ export default class App extends Component {
                                     <NavLink activeClassName="active" to="/reports">Reports</NavLink>
                                 </li>
                                 <li>
+                                    <NavLink activeClassName="active" to="/chat">Chat</NavLink>
+                                </li>
+                                <li>
                                     <NavLink activeClassName="active" to="/register">Register</NavLink>
                                 </li>
                                 <li>
@@ -35,6 +39,7 @@ export default class App extends Component {
                     <Route path="/reports" component={Reports} />
                     <Route path="/register" component={Register} />
                     <Route path="/login" component={Login} />
+                    <Route path="/chat" component={Chat} />
                   </div>
                 </Router>
             </div>
