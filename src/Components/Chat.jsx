@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
 
-// const socket = io('https://socket-server.mahm.me');
-const socket = io('http://localhost:8300');
+const socket = io('https://socket-server.mahm.me');
+// const socket = io('http://localhost:8300');
 //
 // const mongo = require("mongodb").MongoClient;
 // const dsn = "mongodb://localhost:27017/chat";
