@@ -69,7 +69,8 @@ export default class ReportsView extends Component {
         console.log(this.state.report)
         const data = {
             "week": this.props.match.params.id,
-            "report": this.state.report
+            "report": this.state.report,
+            "token": localStorage.getItem("access_token")
         }
         fetch(process.env.REACT_APP_API + "/reports/week/:id", {
             method: "POST",
@@ -84,7 +85,7 @@ export default class ReportsView extends Component {
         this.setState({
             editing: false
         })
-        window.location.reload();
+        // window.location.reload();
     }
 
     onChange = (e) => {

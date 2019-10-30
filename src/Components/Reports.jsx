@@ -29,6 +29,9 @@ export default class Reports extends Component {
                       <li>
                         <NavLink activeClassName="activeReport" to="/reports/week/5">Week 5 </NavLink>
                       </li>
+                      <li>
+                        <NavLink activeClassName="activeReport" to="/reports/week/10">Week 10 </NavLink>
+                      </li>
                     </ul>
                     <Route path="/reports/week/:id" component={ReportsView} />
                 </div>
